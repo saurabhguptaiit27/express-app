@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSE Client</title>
+  </head>
+  <body>
+    <div id="sseData"></div>
+
+    <script>
+      const sseDataElement = document.getElementById("sseData");
+
+      const eventSource = new EventSource("/sse");
+
+      eventSource.onmessage = (event) => {
+        sseDataElement.innerText += event.data + "\n";
+      };
+    </script>
+  </body>
+</html>
